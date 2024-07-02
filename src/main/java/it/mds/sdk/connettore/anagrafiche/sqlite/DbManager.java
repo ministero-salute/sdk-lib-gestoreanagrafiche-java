@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: BSD-3-Clause */
+
 package it.mds.sdk.connettore.anagrafiche.sqlite;
 
 import it.mds.sdk.connettore.anagrafiche.conf.Configurazione;

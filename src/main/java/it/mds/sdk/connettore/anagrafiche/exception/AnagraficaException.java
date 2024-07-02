@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: BSD-3-Clause */
+
 package it.mds.sdk.connettore.anagrafiche.exception;
 
 public class AnagraficaException extends RuntimeException{

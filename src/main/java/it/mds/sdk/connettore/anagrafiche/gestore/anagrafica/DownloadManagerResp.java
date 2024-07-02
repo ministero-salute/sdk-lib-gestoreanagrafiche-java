@@ -1,3 +1,5 @@
+/* SPDX-License-Identifier: BSD-3-Clause */
+
 package it.mds.sdk.connettore.anagrafiche.gestore.anagrafica;
 
 import it.mds.sdk.connettore.anagrafiche.tabella.TabellaAnagrafica;
