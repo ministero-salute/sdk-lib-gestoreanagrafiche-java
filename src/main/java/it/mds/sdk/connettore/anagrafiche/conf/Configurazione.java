@@ -25,10 +25,12 @@ public class Configurazione {
     ClientUsername clientUsername;
     ClientPassword clientPassword;
     Resilienza resilienza;
+    Properties properties;
 
     public Configurazione() {this(leggiConfigurazioneEsterna());}
 
     public Configurazione(final Properties conf) {
+        this.properties = conf;
         this.configurazioneDb = ConfigurazioneDb.builder()
                 .withUrlSqLiteDb("jdbc:sqlite:"+conf.getProperty("sqlite.database.file.path", ""))
                 .build();
@@ -45,6 +47,7 @@ public class Configurazione {
                 .withOre(conf.getProperty("resilienza.ore", ""))
                 .build();
     }
+
 
     @Value
     @Builder(setterPrefix = "with")
@@ -83,7 +86,7 @@ public class Configurazione {
     }
     private static Properties leggiConfigurazioneEsterna() {
         log.debug("{}.leggiConfigurazioneEsterna - BEGIN", Configurazione.class.getName());
-        Properties properties = getProperties();
+        Properties properties = new Properties();
         try (InputStreamReader in = new InputStreamReader(new FileInputStream("/sdk/properties/" + FILE_CONF),
                 StandardCharsets.UTF_8))  {
             properties.load(in);
@@ -94,8 +97,6 @@ public class Configurazione {
         return properties;
     }
 
-    private static Properties getProperties(){
-        return new Properties();
-    }
+
 
 }

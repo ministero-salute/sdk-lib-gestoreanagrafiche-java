@@ -2,6 +2,7 @@
 
 package it.mds.sdk.connettore.anagrafiche.gestore.anagrafica;
 
+import it.mds.sdk.anagrafiche.client.DownloaderClientFactory;
 import it.mds.sdk.anagrafiche.client.DownloaderClientImplementation;
 import it.mds.sdk.connettore.anagrafiche.conf.Configurazione;
 import it.mds.sdk.connettore.anagrafiche.tabella.RecordAnagrafica;
@@ -98,11 +99,7 @@ public class DownloadManager {
     }
 
     protected static DownloaderClient getDownloaderClientWithConf(Configurazione conf) {
-        DownloaderClient downloaderClient = DownloaderClientImplementation.instance();
-        //downloaderClient.setMockUrl("/sdk/mock/");
-        downloaderClient.setEndpointSoap(conf.getClientHost().getHost());
-        downloaderClient.setWsseUsername(conf.getClientUsername().getUser());
-        downloaderClient.setWssePassword(conf.getClientPassword().getPass());
-        return downloaderClient;
+
+        return DownloaderClientFactory.createDownloaderClient(conf.getProperties());
     }
 }

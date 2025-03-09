@@ -799,11 +799,9 @@ public class QueryAnagrafica {
         try (Connection c = DbManager.getInstance().getConnection()) {
             log.info("Opened database successfully");
             String sql = "CREATE TABLE IF NOT EXISTS " + nomeTabella +
-                    " (ID_RECORD INTEGER, " +
-                    " ASL TEXT, " +
-                    " TIPO_STRUTTURA_MEDICO TEXT, " +
-                    " CODICE_STRUTTURA_MEDICO TEXT, " +
-                    " CODICE_OPERATIVA_CIG TEXT)";
+                    " (VALIDODA TIME," +
+                    "VALIDOA TIME," +
+                    "DATO TEXT)";
             log.debug(sql);
 
             stmt = c.prepareStatement(sql);
